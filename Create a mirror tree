@@ -1,0 +1,22 @@
+#Given a binary tree, the task is to create a new binary tree which is a mirror image of the given binary tree.
+# code
+class Node:
+   def __init__(self,data):
+       self.left = None
+       self.right = None
+       self.data = data
+ 
+def inOrder(root):
+   if root is not None:
+       inOrder(root.left)
+       print (root.data, end = ' ')
+       inOrder(root.right)
+ 
+#we recursively call the mirror function which swaps the right subtree with the left subtree.
+def mirror(root):
+    if root is None:
+        return
+    mirror(root.left)
+    mirror(root.right)
+    root.left, root.right = root.right, root.left
+ 
